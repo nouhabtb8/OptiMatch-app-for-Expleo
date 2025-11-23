@@ -142,7 +142,7 @@ class ListViewerWindow(QWidget):
         count = -1
         for i in range(self.list_widget.count()):
             item = self.list_widget.item(i).text()
-            if item.strip().startswith("REQ-"):
+            if item.strip().startswith("QQQ-"):
                 count += 1
             if i == visual_index:
                 return count

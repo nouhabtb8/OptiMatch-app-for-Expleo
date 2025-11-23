@@ -73,7 +73,7 @@ class Deleting_projects(QDialog):
         self.list_widget.clear()
         self.cursor.execute("PRAGMA table_info(projects)")
         all_columns = [col[1] for col in self.cursor.fetchall()]
-        self.project_columns = [col for col in all_columns if col not in ("nom_cf", "id")]
+        self.project_columns = [col for col in all_columns if col not in ("nom_cc", "id")]
 
         for col in self.project_columns:
             item = QListWidgetItem(col)

@@ -26,7 +26,7 @@ def normalize_id(raw_id):
 
 
 def iter_block_items(parent):
-    """Parcourt le document dans l’ordre réel (paragraphes et tableaux)."""
+    """Parcourt le document"""
     for child in parent.element.body.iterchildren():
         if isinstance(child, CT_P):
             yield Paragraph(child, parent)
@@ -43,9 +43,9 @@ def extract_lines_from_docx(path):
     for block in blocks:
         if isinstance(block, Paragraph):
             text = block.text.strip()
-            if not found_heading and "purpose and scope of application" in text.lower():
+            if not found_heading and "ppp" in text.lower():
                 found_heading = True
-                print(" 'PURPOSE AND SCOPE OF APPLICATION' détecté")
+                print(" 'PPP' détecté")
             continue
 
         if found_heading and isinstance(block, Table):
@@ -57,7 +57,7 @@ def extract_lines_from_docx(path):
                             lines.append(clean)
 
     if not found_heading:
-        print(" 'PURPOSE AND SCOPE OF APPLICATION' non trouvé, extraction annulée.")
+        print(" 'PPP' non trouvé, extraction annulée.")
 
     return lines
 
@@ -170,7 +170,7 @@ def format_of_word_document(parent):
         current_text = []
 
         for line in lines:
-            match = re.search(r'REQ[-]?\d{7}[\s]*[A-Z]\b', line)
+            match = re.search(r'QQQ[-]?\d{7}[\s]*[A-Z]\b', line)
             if match:
                 raw_id = match.group(0).strip().replace("_", " ")
                 if current_id and current_text:

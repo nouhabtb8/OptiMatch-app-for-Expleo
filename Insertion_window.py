@@ -47,7 +47,7 @@ class InsertionWindow(QWidget):
         input_layout = QHBoxLayout()
         input_layout.setSpacing(0)
         self.input_id = QLineEdit()
-        self.input_id.setPlaceholderText("Ex: REQ-0579227 B")
+        self.input_id.setPlaceholderText("Ex: QQQ-0000000 Z")
         input_layout.addWidget(self.input_id)
         layout.addLayout(input_layout)
 

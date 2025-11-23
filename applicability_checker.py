@@ -187,7 +187,7 @@ def check_applicability(combinations, manager=None):
         combo_tracking = {combo: {"applied": [], "not_applied": [], "not_found": []} for combo in combinations}
 
         for project_col in project_columns:
-            cursor.execute(f'SELECT nom_cf, "{project_col}" FROM projects')
+            cursor.execute(f'SELECT nom_cc, "{project_col}" FROM projects')
             rows = cursor.fetchall()
             applicability_map = {
                 row[0].strip(): str(row[1]).strip().upper() if row[1] is not None else "NULL"
